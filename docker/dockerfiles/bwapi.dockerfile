@@ -56,8 +56,10 @@ COPY --chown=starcraft:users dlls/* $WINEPREFIX/drive_c/windows/system32/
 RUN /bin/bash -c "Xvfb :0 -auth ~/.Xauthority -screen 0 640x480x24 & winetricks -q vcrun2015"
 
 # Download bwheadless
-RUN curl -L https://github.com/tscmoo/bwheadless/releases/download/v0.1/bwheadless.exe \
-    -o "$SC_DIR/bwheadless.exe"
+#RUN curl -L https://github.com/tscmoo/bwheadless/releases/download/v0.1/bwheadless.exe \
+#    -o "$SC_DIR/bwheadless.exe"
+RUN curl -L https://github.com/busterbernstein/bwheadless/releases/download/v0.2/bwheadless.exe \
+     -o "$SC_DIR/bwheadless.exe"
 
 # Copy relevant BWAPI versions (cached)
 COPY --chown=starcraft:users bwapi $BWAPI_DIR
